@@ -38,7 +38,7 @@ module.exports.login = async function(req,res){
              //const refreshToken = jwt.sign({"email":user.email,"userId":user._id,"role":"user"},SEC_KEY,{expiresIn:'1d'})
              
             //update
-            res.json({data:user,msg:"Login done",rcode:200,token:token,token2:refreshToken})
+            res.json({data:user,msg:"Login done",rcode:200})
 
 
 
