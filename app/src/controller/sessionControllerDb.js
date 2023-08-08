@@ -28,13 +28,14 @@ module.exports.login = async function(req,res){
     let email = req.body.email 
     let password = req.body.password 
 
+
     let user = await UserModel.findOne({email:email})
     
     if(user && user.password == password){
-             token = jwt.sign({"email":user.email,"userId":user._id,"role":"user"},SEC_KEY,{expiresIn:"60s"})//encode
-             console.log("token =>"+token);
+            //  token = jwt.sign({"email":user.email,"userId":user._id,"role":"user"},SEC_KEY,{expiresIn:"60s"})//encode
+            // console.log("token =>"+token);
          
-             const refreshToken = jwt.sign({"email":user.email,"userId":user._id,"role":"user"},SEC_KEY,{expiresIn:'1d'})
+             //const refreshToken = jwt.sign({"email":user.email,"userId":user._id,"role":"user"},SEC_KEY,{expiresIn:'1d'})
              
             //update
             res.json({data:user,msg:"Login done",rcode:200,token:token,token2:refreshToken})
