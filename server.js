@@ -15,7 +15,7 @@ app.use(express.json())
 app.use(cors())
 
 //private ->authenticated 
-app.use("/admin",authMiddlerware,categoryRoutes)
+app.use("/admin",categoryRoutes)
 // app.use("/admin",authMiddlerware,productRoutes)
 app.use("/admin",productRoutes)
 
