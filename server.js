@@ -6,7 +6,7 @@ const productRoutes = require("./app/src/routes/product.routes")
 const publicRoutes = require("./app/src/routes/public.routes")
 const cors = require("cors")
 
-const authMiddlerware = require("./app/src/middleware/auth.middleware")
+// const authMiddlerware = require("./app/src/middleware/auth.middleware")
 const app = express()
 
 //middlerware 
