@@ -16,7 +16,9 @@ app.use(cors())
 
 //private ->authenticated 
 app.use("/admin",authMiddlerware,categoryRoutes)
+// app.use("/admin",authMiddlerware,productRoutes)
 app.use("/admin",authMiddlerware,productRoutes)
+
 
 //public 
 app.use("/public",publicRoutes)
