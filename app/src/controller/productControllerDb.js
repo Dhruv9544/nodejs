@@ -104,11 +104,11 @@ module.exports.filterProducts = function (req, res) {
 //name price qty 
 
 module.exports.updateProduct = function(req,res){
-    let productId = req.body.productId 
+    let productId = req.params.productId
     let price = req.body.price  
     let qty = req.body.qty 
 
-    ProductModel.updateOne({_id:productId},{"price":price,"qty":qty}).then((data)=>{
+    ProductModel.findByIdAndUpdate({_id:productId},{"price":price,"qty":qty}).then((data)=>{
         res.json({"msg":"product updated","data":data,"rcode":200})
     }).catch((err)=>{
         res.json({"msg":"product updation fails","data":data,"rcode":200})      
