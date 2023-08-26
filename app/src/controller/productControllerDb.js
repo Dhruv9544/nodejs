@@ -1,3 +1,4 @@
+const productModel = require("../model/productModel");
 const ProductModel = require("../model/productModel")
 
 module.exports.addProduct = function (req, res) {
@@ -37,6 +38,8 @@ module.exports.addProduct = function (req, res) {
 //nodeJs -> singlethread -> async 
 module.exports.getAllProducts = function (req, res) {
 
+    
+
    // console.log(req.headers.token);
 
          ProductModel.find().populate("categoryId").exec().then((data) => {
@@ -45,7 +48,8 @@ module.exports.getAllProducts = function (req, res) {
             console.log(err);
             res.json({ "msg": "SMW", "rcode": -9, "data": err })
         })
-     
+
+       
 }
 
 //getprodcut/1 
@@ -108,8 +112,8 @@ module.exports.updateProduct = function(req,res){
     let price = req.body.price  
     let qty = req.body.qty 
 
-    ProductModel.findByIdAndUpdate({_id:productId},{"price":price,"qty":qty}).then((data)=>{
-        res.json({"msg":"product updated","data":data,"rcode":200})
+    ProductModel.findByIdAndUpdate({_id:productId},{"price":price,"qty":qty}).then(async (data)=>{
+       await  res.json({"msg":"product updated","data":data,"rcode":200})
     }).catch((err)=>{
         res.json({"msg":"product updation fails","data":data,"rcode":200})      
     })

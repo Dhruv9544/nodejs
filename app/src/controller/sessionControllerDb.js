@@ -15,6 +15,7 @@ module.exports.signup =  async function(req,res){
     // })
 
     let user = new UserModel(req.body) 
+    console.log(user);
 
    let data = await user.save() 
 
